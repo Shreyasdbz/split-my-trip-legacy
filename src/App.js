@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import ParticipantListContextProvider, {
+  ParticipantListContext,
+} from "./context/ParticipantListContext";
+
+import ExpenseListContextProvider, {
+  ExpenseListContext,
+} from "./context/ExpenseListContext";
+
+//Import Components
+import Header from "./components/Header";
+import Participants from "./components/Participants";
+import Expenses from "./components/Expenses";
+import Calculate from "./components/Calculate";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ParticipantListContextProvider>
+      <ExpenseListContextProvider>
+        <div className="App">
+          <Header></Header>
+          <Participants></Participants>
+          <Expenses></Expenses>
+          <Calculate></Calculate>
+        </div>
+      </ExpenseListContextProvider>
+    </ParticipantListContextProvider>
   );
 }
 
