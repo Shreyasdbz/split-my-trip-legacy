@@ -30,7 +30,7 @@ const Participants = () => {
                 </ul>
               ) : (
                 <div className="noParticipants">
-                  <span>Please add a person using the form below</span>
+                  {/* <span>Please add a person using the form below</span> */}
                 </div>
               )}
             </div>

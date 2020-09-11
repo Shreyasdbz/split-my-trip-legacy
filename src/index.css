@@ -42,6 +42,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .function-card-title {
@@ -67,11 +69,14 @@ body {
   background: #0099ff;
   color: white;
   border-radius: 0.25rem;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
 }
 
 .fuction-card-button button:hover {
   position: relative;
-  background: #2dabff;
+  -webkit-transform: scale(1.125);
+          transform: scale(1.125);
   -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.19), 0 1px 2px rgba(0, 0, 0, 0.23);
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.19), 0 1px 2px rgba(0, 0, 0, 0.23);
   cursor: pointer;
@@ -93,7 +98,7 @@ body {
 }
 
 .header-main .card .card-content {
-  background: #028de9;
+  background: #0089e4;
   color: white;
 }
 
@@ -121,7 +126,7 @@ body {
 }
 
 .participants-main .card {
-  padding: 0rem 1rem;
+  padding: 0rem 3rem;
 }
 
 .participants-main .card .card-content {
@@ -155,7 +160,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 0.25rem 0.75rem;
-  background: #9e3bfa;
+  background: #9729ff;
   color: white;
   margin: 0.25rem 0.25rem;
   border-radius: 2rem;
@@ -170,7 +175,7 @@ body {
 .participants-main .participant-list-item button {
   padding: 0rem 0.25rem;
   border: none;
-  background: #9e3bfa;
+  background: #9729ff;
   color: white;
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
@@ -218,7 +223,7 @@ body {
 }
 
 .expenses-main .card {
-  padding: 0rem 1rem;
+  padding: 0rem 3rem;
 }
 
 .expenses-main .card .card-content {
@@ -252,7 +257,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 0.25rem 0.75rem;
-  background: #9e3bfa;
+  background: #9729ff;
   color: white;
   margin: 0.25rem 0.25rem;
   border-radius: 2rem;
@@ -267,7 +272,7 @@ body {
 .expenses-main .expense-list-item button {
   padding: 0rem 0.25rem;
   border: none;
-  background: #9e3bfa;
+  background: #9729ff;
   color: white;
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
@@ -317,7 +322,7 @@ body {
 
 .calculate-main .calculate {
   border: none;
-  background: #9e3bfa;
+  background: #9729ff;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
@@ -338,9 +343,9 @@ body {
 
 .calculate-main .reset {
   border: none;
-  background: #3e3e3e;
+  background: #d80000;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 1.5rem;
   font-size: 1rem;
   -webkit-transition: 0.1s;
@@ -354,5 +359,74 @@ body {
   -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.19), 0 1px 2px rgba(0, 0, 0, 0.23);
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.19), 0 1px 2px rgba(0, 0, 0, 0.23);
   cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.85;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal {
+  z-index: 100;
+  background: white;
+  border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 80vh;
+  width: 50vw;
+}
+
+.modal-close-button {
+  padding: 0.25rem 1rem;
+  font-size: 1.125rem;
+  background: #9729ff;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: none;
+  margin: 1rem 0rem;
+}
+
+.button-default {
+  background: #247ba0;
+  color: #fff;
 }
 /*# sourceMappingURL=index.css.map */

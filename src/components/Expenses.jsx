@@ -30,7 +30,7 @@ const Expenses = () => {
                 </ul>
               ) : (
                 <div className="noExpenses">
-                  <span>Please add an expense using the form below</span>
+                  {/* <span>Please add an expense using the form below</span> */}
                 </div>
               )}
             </div>

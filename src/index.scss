@@ -6,18 +6,14 @@ $width-medium: 768px;
 $width-large: 992px;
 $width-huge: 1200px;
 
-$color-z0: #ffffff;
-$color-z1: #fffffe;
 $color-primary: #0099ff;
 $color-primary-lighen: #2dabff;
-$color-primary-darken: #028de9;
-$color-secondary: #9e3bfa;
+$color-primary-darken: #0089e4;
+$color-secondary: #9729ff;
+$color-danger: #d80000;
 $color-subtitle: #3e3e3e;
 $color-grey-bg: #e0e0e0;
-
-$color-gradient-primary: linear-gradient(45deg, #21d4fd 0%, #2b43d6 100%);
-$color-gradient-secondary: linear-gradient(315deg, #ff1c00 0%, #ffbd33 100%);
-$color-gradient-three: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
+$color-bg-dark: #00101b;
 
 $shadow-0: 0 4px 6px rgba(0, 0, 0, 0.19), 0 1px 2px rgba(0, 0, 0, 0.23);
 $shadow-1: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -41,7 +37,6 @@ body {
   transition: 0.3s;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
   transition: 0.3s;
 }
 
@@ -59,8 +54,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // border-bottom-left-radius: 0.5rem;
-    // border-bottom-right-radius: 0.5rem;
+    transition: 0.3s;
   }
 }
 
@@ -86,12 +80,12 @@ body {
     background: $color-primary;
     color: white;
     border-radius: 0.25rem;
+    transition: 0.1s;
   }
+
   button:hover {
     position: relative;
-    // transform: scale(1.025);
-    background: $color-primary-lighen;
-    // color: $color-subtitle;
+    transform: scale(1.125);
     box-shadow: $shadow-0;
     cursor: pointer;
   }
@@ -102,6 +96,7 @@ body {
   position: relative;
   top: 0.125rem;
 }
+
 .form-label-mid {
   padding-left: 1rem;
 }
@@ -123,6 +118,7 @@ body {
 
   .title {
     padding: 0.5rem;
+
     span {
       font-size: 3rem;
       font-weight: 700;
@@ -131,6 +127,7 @@ body {
 
   .subtitle {
     padding: 0.5rem;
+
     span {
       font-size: 1.25rem;
       font-weight: 400;
@@ -147,7 +144,7 @@ body {
   padding: 0.5rem 0rem;
 
   .card {
-    padding: 0rem 1rem;
+    padding: 0rem 3rem;
 
     .card-content {
       padding: 0.5rem 1rem;
@@ -191,6 +188,7 @@ body {
       transform: scale(0.75);
       transition: 0.1s;
     }
+
     button:hover {
       position: relative;
       transform: scale(1);
@@ -234,7 +232,7 @@ body {
   padding: 0.5rem 0rem;
 
   .card {
-    padding: 0rem 1rem;
+    padding: 0rem 3rem;
 
     .card-content {
       padding: 0.5rem 1rem;
@@ -278,6 +276,7 @@ body {
       transform: scale(0.75);
       transition: 0.1s;
     }
+
     button:hover {
       position: relative;
       transform: scale(1);
@@ -331,6 +330,7 @@ body {
 
     margin-bottom: 1.5rem;
   }
+
   .calculate:hover {
     position: relative;
     transform: scale(1.0125);
@@ -340,17 +340,77 @@ body {
 
   .reset {
     border: none;
-    background: $color-subtitle;
+    background: $color-danger;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 1.5rem;
     font-size: 1rem;
     transition: 0.1s;
   }
+
   .reset:hover {
     position: relative;
     transform: scale(1.0125);
     box-shadow: $shadow-0;
     cursor: pointer;
   }
+}
+
+// ----------------------------------------------------------
+// ----------------------------- Transcations Modal
+// ----------------------------------------------------------
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.85;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  z-index: 100;
+  background: white;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+  width: 50vw;
+}
+
+.modal-close-button {
+  padding: 0.25rem 1rem;
+  font-size: 1.125rem;
+  background: $color-secondary;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: none;
+  margin: 1rem 0rem;
+}
+
+.button-default {
+  background: #247ba0;
+  color: #fff;
 }
