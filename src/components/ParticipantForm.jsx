@@ -26,7 +26,6 @@ const ParticipantForm = () => {
   useEffect(() => {
     if (editParticipant !== null) {
       setName(editParticipant.name);
-      console.log(editParticipant);
     } else {
       setName("");
     }
@@ -34,7 +33,11 @@ const ParticipantForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="participant-form">
+      <label htmlFor="participant-name" className="form-label">
+        Participant Name:{" "}
+      </label>
       <input
+        id="participant-name"
         onChange={handleChange}
         type="text"
         value={name}

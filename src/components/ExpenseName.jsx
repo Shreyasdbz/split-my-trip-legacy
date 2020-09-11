@@ -8,7 +8,9 @@ const ExpenseName = ({ charge }) => {
   return (
     <li className="expense-name">
       <div className="expense-list-item">
-        <span>{charge.title}</span>
+        <span>
+          {charge.title}, ${charge.amount}
+        </span>
         <div className="btn-wrapper">
           <button
             className="expense-list-item-button"

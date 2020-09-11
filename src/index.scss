@@ -34,7 +34,7 @@ $shadow-3: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 ::after {
   margin: 0;
   padding: 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 body {
@@ -95,6 +95,15 @@ body {
     box-shadow: $shadow-0;
     cursor: pointer;
   }
+}
+
+.form-label {
+  padding: 0rem 0.5rem;
+  position: relative;
+  top: 0.125rem;
+}
+.form-label-mid {
+  padding-left: 1rem;
 }
 
 // ----------------------------------------------------------
@@ -201,9 +210,10 @@ body {
 
   .participant-form {
     padding: 1rem 0rem;
-
     display: flex;
     flex-direction: row;
+    position: relative;
+    right: 0.5rem;
 
     .form-add-participant {
       outline: none;
@@ -287,9 +297,10 @@ body {
 
   .expense-form {
     padding: 1rem 0rem;
-
     display: flex;
     flex-direction: row;
+    position: relative;
+    right: 0.5rem;
 
     .form-add-expense {
       outline: none;

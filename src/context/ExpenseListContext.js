@@ -14,8 +14,8 @@ const ExpenseListContextProvider = (props) => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
 
-  const addExpense = (title) => {
-    setExpenses([...expenses, { title: title, id: uuid() }]);
+  const addExpense = (title, amount) => {
+    setExpenses([...expenses, { title: title, amount: amount, id: uuid() }]);
   };
 
   const removeExpense = (id) => {
@@ -29,12 +29,13 @@ const ExpenseListContextProvider = (props) => {
   const findExpense = (id) => {
     const charge = expenses.find((expense) => expense.id === id);
 
-    setExpenses(charge);
+    setEditExpense(charge);
   };
 
-  const editExpenseItem = (title, id) => {
+  const editExpenseItem = (title, amount, id) => {
+    console.log("Inside Edit: ", id, title, amount);
     const newExpeseList = expenses.map((charge) =>
-      charge.id === id ? { title, id } : charge
+      charge.id === id ? { title, amount, id } : charge
     );
 
     setExpenses(newExpeseList);
