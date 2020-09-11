@@ -10,6 +10,11 @@ import ExpenseListContextProvider, {
   ExpenseListContext,
 } from "./context/ExpenseListContext";
 
+import TransactionListContextProvider, {
+  // eslint-disable-next-line
+  TransactionListContext,
+} from "./context/TransactionListContext";
+
 //Import Components
 import Header from "./components/Header";
 import Participants from "./components/Participants";
@@ -20,12 +25,14 @@ function App() {
   return (
     <ParticipantListContextProvider>
       <ExpenseListContextProvider>
-        <div className="App">
-          <Header></Header>
-          <Participants></Participants>
-          <Expenses></Expenses>
-          <Calculate></Calculate>
-        </div>
+        <TransactionListContextProvider>
+          <div className="App">
+            <Header></Header>
+            <Participants></Participants>
+            <Expenses></Expenses>
+            <Calculate></Calculate>
+          </div>
+        </TransactionListContextProvider>
       </ExpenseListContextProvider>
     </ParticipantListContextProvider>
   );

@@ -1,38 +1,24 @@
 import React, { useContext } from "react";
 
-import { ParticipantListContext } from "../context/ParticipantListContext";
-import { ExpenseListContext } from "../context/ExpenseListContext";
+import { TransactionListContext } from "../context/TransactionListContext";
 
 const Checkbox = ({ participantID, expenseID }) => {
-  const { participants } = useContext(ParticipantListContext);
-  const { expenses } = useContext(ExpenseListContext);
-
-  // const [attendance, setAttendace] = useState("");
-
-  const getParticipantName = (id) => {
-    for (let p = 0; p < participants.length; p++) {
-      if (participants[p].id === id) {
-        return participants[p].name;
-      }
-    }
-  };
-
-  const getExpenseTitle = (id) => {
-    for (let e = 0; e < expenses.length; e++) {
-      if (expenses[e].id === id) {
-        return expenses[e].title;
-      }
-    }
-  };
+  const { transactions, addTransaction, removeTransaction } = useContext(
+    TransactionListContext
+  );
 
   const handleChange = (e) => {
-    var pName = getParticipantName(participantID);
-    var eName = getExpenseTitle(expenseID);
-
     if (e.target.checked === true) {
-      console.log(pName + " participated in " + eName);
+      addTransaction(participantID, expenseID);
     } else {
-      console.log(pName + " DID NOT participate in " + eName);
+      var tID = "";
+      for (let t = 0; t < transactions.length; t++) {
+        var trn = transactions[t];
+        if (trn.pID === participantID && trn.eID === expenseID) {
+          tID = trn.id;
+        }
+      }
+      removeTransaction(tID);
     }
   };
 

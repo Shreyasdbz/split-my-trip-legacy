@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Transactions = ({ isShowing, hide }) =>
+const Payments = ({ isShowing, hide, paymentList }) =>
   isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
@@ -30,4 +30,4 @@ const Transactions = ({ isShowing, hide }) =>
       )
     : null;
 
-export default Transactions;
+export default Payments;

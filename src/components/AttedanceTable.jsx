@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import { buildAllData } from "./buildData";
+import React, { useContext } from "react";
 
 import { ParticipantListContext } from "../context/ParticipantListContext";
 import { ExpenseListContext } from "../context/ExpenseListContext";
@@ -10,10 +9,6 @@ import Checkbox from "./Checkbox";
 const AttedanceTable = () => {
   const { participants } = useContext(ParticipantListContext);
   const { expenses } = useContext(ExpenseListContext);
-
-  useEffect(() => {
-    buildAllData(participants, expenses);
-  });
 
   return (
     <div className="table-wrapper">
