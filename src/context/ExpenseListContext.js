@@ -1,9 +1,13 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import uuid from "react-uuid";
+
+import { ParticipantListContext } from "../context/ParticipantListContext";
 
 export const ExpenseListContext = createContext();
 
 const ExpenseListContextProvider = (props) => {
+  const { participants } = useContext(ParticipantListContext);
+
   const initalState = JSON.parse(localStorage.getItem("expenses")) || [];
 
   const [expenses, setExpenses] = useState(initalState);
@@ -15,6 +19,10 @@ const ExpenseListContextProvider = (props) => {
   }, [expenses]);
 
   const addExpense = (title, amount, payerID) => {
+    if (payerID === "" || payerID === null) {
+      payerID = participants[0].id;
+    }
+
     setExpenses([
       ...expenses,
       { title: title, amount: amount, payerID: payerID, id: uuid() },

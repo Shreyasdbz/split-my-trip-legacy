@@ -25,6 +25,10 @@ const ExpenseForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (payerID === "") {
+      setPayerID(participants[0].id);
+    }
+
     if (editExpense === null) {
       addExpense(title, amount, payerID);
       setTitle("");
@@ -86,6 +90,7 @@ const ExpenseForm = () => {
         onChange={handleChange_payerID}
         className="form-add-expense"
         placeholder="Option1"
+        required
       >
         {participants.map((person) => {
           return (

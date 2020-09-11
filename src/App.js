@@ -1,10 +1,12 @@
 import React from "react";
 
 import ParticipantListContextProvider, {
+  // eslint-disable-next-line
   ParticipantListContext,
 } from "./context/ParticipantListContext";
 
 import ExpenseListContextProvider, {
+  // eslint-disable-next-line
   ExpenseListContext,
 } from "./context/ExpenseListContext";
 

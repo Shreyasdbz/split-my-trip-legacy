@@ -14,6 +14,7 @@ const ExpenseName = ({ charge }) => {
       }
     }
   };
+
   var payer = findPayer();
 
   return (
@@ -21,7 +22,7 @@ const ExpenseName = ({ charge }) => {
       <div className="expense-list-item">
         <span>
           {charge.title}, ${charge.amount} [ {payer.name} ]
-          {/* {charge.title}, ${charge.amount} */}
+          {/* {charge.title}, ${charge.amount} [{charge.payerID}] */}
         </span>
         <div className="btn-wrapper">
           <button

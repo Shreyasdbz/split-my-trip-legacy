@@ -4,8 +4,9 @@ import { ExpenseListContext } from "../context/ExpenseListContext";
 import ExpenseName from "./ExpenseName";
 import ExpenseForm from "./ExpenseForm";
 
+import AttedanceTable from "./AttedanceTable";
+
 const Expenses = () => {
-  // const { participants } = useContext(ParticipantListContext);
   const { expenses } = useContext(ExpenseListContext);
 
   return (
@@ -36,6 +37,7 @@ const Expenses = () => {
             </div>
           </div>
           <ExpenseForm></ExpenseForm>
+          <AttedanceTable></AttedanceTable>
         </div>
       </div>
     </div>
