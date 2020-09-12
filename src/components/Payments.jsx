@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import PaymentDetails from "./PaymentDetails";
+
 const Payments = ({ isShowing, hide, paymentList }) =>
   isShowing
     ? ReactDOM.createPortal(
@@ -14,7 +16,21 @@ const Payments = ({ isShowing, hide, paymentList }) =>
             role="dialog"
           >
             <div className="modal">
-              <div className="transactions-list-wrapper">TRANSCATIONS</div>
+              <button
+                type="button"
+                className="modal-close-button"
+                data-dismiss="modal"
+                onClick={hide}
+              >
+                Close
+              </button>
+              <div className="payment-details-wrapper">
+                {paymentList.map((pay) => {
+                  return (
+                    <PaymentDetails pay={pay} key={pay.id}></PaymentDetails>
+                  );
+                })}
+              </div>
               <button
                 type="button"
                 className="modal-close-button"

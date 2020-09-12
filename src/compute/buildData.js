@@ -1,19 +1,30 @@
+import uuid from "react-uuid";
+
+import { doOps } from "./doOps";
+
 import Participant from "./Participant";
 import Expense from "./Expense";
 
 // Payment List Data Structure Breakdown:
 // []:
-// Name
-// Balance
-//   -------PayList----------
+// Name,
+// Balance,
+//   payList:
+//      []:
 //      {payToName, payAmount}
-//   -------GetList----------
+//   getList:
+//      []:
 //      {getFromName, getAmount}
+// id
 
 export const getPaymentList = (participants, expenses, transactions) => {
   var expenseList = [];
   var participantList = [];
   var paymentList = [];
+  var finalTranscations = [];
+
+  var positiveList = [];
+  var negativeList = [];
 
   //Step1: Build an Expense List -----------------------
 
@@ -62,17 +73,85 @@ export const getPaymentList = (participants, expenses, transactions) => {
     }
   }
 
+  //Step3: Build a Positive/Negative List ------------------------
+
+  for (let r = 0; r < participantList.length; r++) {
+    var init_with_zero = 0;
+
+    var pn = participantList[r];
+    var balance_amount = Number(init_with_zero);
+    var splitsTotal = Number(init_with_zero);
+    var paidForTotal = Number(init_with_zero);
+
+    for (let t = 0; t < pn.attendedList.length; t++) {
+      splitsTotal +=
+        pn.attendedList[t].amount / pn.attendedList[t].participantIDs.length;
+    }
+
+    for (let y = 0; y < pn.payedForIDs.length; y++) {
+      var pyID = pn.payedForIDs[y];
+
+      for (let ex = 0; ex < expenseList.length; ex++) {
+        if (expenseList[ex].id === pyID) {
+          paidForTotal += parseFloat(expenseList[ex].amount);
+        }
+      }
+    }
+
+    var balance_raw = paidForTotal - splitsTotal;
+    balance_amount = Math.round(balance_raw * 100) / 100;
+
+    var obj = {
+      id: participantList[r].id,
+      name: participantList[r].name,
+      balance: balance_amount,
+    };
+
+    if (balance_raw > 0) {
+      positiveList.push(obj);
+    } else {
+      negativeList.push(obj);
+    }
+
+    pn.balance = balance_amount;
+  }
+
+  finalTranscations = doOps(positiveList, negativeList);
+
   //Step3: Build a Payment List ------------------------
 
   for (let i = 0; i < participantList.length; i++) {
-    var pn = participantList[i];
+    var ptc = participantList[i];
 
-    var name = pn.name;
-    var balance = 0;
+    var name = ptc.name;
+    var balance = ptc.balance;
     var payList = [];
     var getList = [];
 
-    var pay = { name, balance, payList, getList };
+    if (finalTranscations !== undefined) {
+      for (let f = 0; f < finalTranscations.length; f++) {
+        var ft = finalTranscations[f];
+        if (ft.payerID === ptc.id) {
+          var payItem = {
+            name: ft.receiverName,
+            amount: Math.abs(ft.amount),
+            id: uuid(),
+          };
+          payList.push(payItem);
+        } else if (ft.receiverID === ptc.id) {
+          var getItem = {
+            name: ft.payerName,
+            amount: Math.abs(ft.amount),
+            id: uuid(),
+          };
+          getList.push(getItem);
+        }
+      }
+    }
+
+    console.log(ptc.name, payList, getList);
+
+    var pay = { name, balance, payList, getList, id: uuid() };
     paymentList.push(pay);
   }
 

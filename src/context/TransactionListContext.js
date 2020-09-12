@@ -5,7 +5,6 @@ export const TransactionListContext = createContext();
 
 const TransactionListContextProvider = (props) => {
   const initialState = [];
-  // const initialState = JSON.parse(localStorage.getItem("transactions")) || [];
 
   const [transactions, setTransactions] = useState(initialState);
 

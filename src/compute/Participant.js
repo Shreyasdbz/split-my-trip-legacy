@@ -2,6 +2,7 @@ class Participant {
   constructor(name, id) {
     this.name = name;
     this.id = id;
+    this.balance = 0;
     this.payedForIDs = [];
     this.attendedList = [];
   }

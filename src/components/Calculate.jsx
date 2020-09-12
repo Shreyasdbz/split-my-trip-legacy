@@ -5,6 +5,7 @@ import Payments from "./Payments";
 import { ParticipantListContext } from "../context/ParticipantListContext";
 import { ExpenseListContext } from "../context/ExpenseListContext";
 import { TransactionListContext } from "../context/TransactionListContext";
+import { PaymentListContext } from "../context/PaymentListContext";
 
 import useModal from "./useModal";
 import { getPaymentList } from "../compute/buildData";
@@ -17,12 +18,26 @@ const Calculate = () => {
   const { transactions, clearTransactions } = useContext(
     TransactionListContext
   );
-
-  var paymentList = [];
+  const { payments, addPayment, clearPayments } = useContext(
+    PaymentListContext
+  );
 
   const handleCalculate = () => {
-    paymentList = getPaymentList(participants, expenses, transactions);
-    console.log(paymentList);
+    var paymentList = getPaymentList(participants, expenses, transactions);
+
+    for (let p = 0; p < paymentList.length; p++) {
+      addPayment(
+        paymentList[p].name,
+        paymentList[p].balance,
+        paymentList[p].payList,
+        paymentList[p].getList
+      );
+    }
+    toggle();
+  };
+
+  const handleCloseModal = () => {
+    clearPayments();
     toggle();
   };
 
@@ -30,6 +45,7 @@ const Calculate = () => {
     clearParticipants();
     clearExpenses();
     clearTransactions();
+    clearPayments();
   };
 
   const { isShowing, toggle } = useModal();
@@ -43,8 +59,8 @@ const Calculate = () => {
           </button>
           <Payments
             isShowing={isShowing}
-            hide={toggle}
-            paymentList={paymentList}
+            hide={handleCloseModal}
+            paymentList={payments}
           />
           <button className="reset" onClick={handleReset}>
             Reset Everything
