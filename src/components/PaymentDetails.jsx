@@ -5,13 +5,14 @@ const PaymentDetails = ({ pay }) => {
   const getList = pay.getList || [];
 
   return (
-    <div className="payment-details-indv">
+    <div className="payment-card">
       <div className="header">
         <div className="name">
+          <span className="name-label">Transcations for: </span>
           <span className="name-value ">{pay.name}</span>
         </div>
         <div className="balance">
-          <span className="balance-label">Balance: $</span>
+          <span className="balance-label">Ending balance: $</span>
           <span className="balance-value">{pay.balance}</span>
         </div>
       </div>

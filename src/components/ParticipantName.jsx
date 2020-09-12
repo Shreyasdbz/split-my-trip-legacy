@@ -20,23 +20,21 @@ const ParticipantName = ({ person }) => {
   };
 
   return (
-    <li className="participant-name">
-      <div className="participant-list-item">
-        <span>{person.name}</span>
-        <div className="btn-wrapper">
-          <button
-            className="participant-list-item-button"
-            onClick={() => findParticipant(person.id)}
-          >
-            <i className="fas fa-pen"></i>
-          </button>
-          <button
-            className="participant-list-item-button"
-            onClick={() => handleRemove(person.id)}
-          >
-            <i className="fas fa-trash-alt"></i>
-          </button>
-        </div>
+    <li className="list-item">
+      <span>{person.name}</span>
+      <div className="btn-wrapper">
+        <button
+          className="content-list-btn"
+          onClick={() => findParticipant(person.id)}
+        >
+          <i className="fas fa-pen"></i>
+        </button>
+        <button
+          className="content-list-btn"
+          onClick={() => handleRemove(person.id)}
+        >
+          <i className="fas fa-trash-alt"></i>
+        </button>
       </div>
     </li>
   );

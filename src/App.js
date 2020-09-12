@@ -34,8 +34,12 @@ function App() {
           <PaymentListContextProvider>
             <div className="App">
               <Header></Header>
-              <Participants></Participants>
-              <Expenses></Expenses>
+              <div className="content-wrapper">
+                <div className="content-container">
+                  <Participants></Participants>
+                  <Expenses></Expenses>
+                </div>
+              </div>
               <Calculate></Calculate>
             </div>
           </PaymentListContextProvider>

@@ -51,22 +51,18 @@ const Calculate = () => {
   const { isShowing, toggle } = useModal();
 
   return (
-    <div className="calculate-main">
-      <div className="card">
-        <div className="card-content">
-          <button className="calculate" onClick={handleCalculate}>
-            See Who Pays Who
-          </button>
-          <Payments
-            isShowing={isShowing}
-            hide={handleCloseModal}
-            paymentList={payments}
-          />
-          <button className="reset" onClick={handleReset}>
-            Reset Everything
-          </button>
-        </div>
-      </div>
+    <div className="calculate-wrapper">
+      <button className="calculate" onClick={handleCalculate}>
+        See Who Pays Who
+      </button>
+      <button className="reset" onClick={handleReset}>
+        Reset
+      </button>
+      <Payments
+        isShowing={isShowing}
+        hide={handleCloseModal}
+        paymentList={payments}
+      />
     </div>
   );
 };

@@ -11,48 +11,41 @@ const AttedanceTable = () => {
   const { expenses } = useContext(ExpenseListContext);
 
   return (
-    <div className="table-wrapper">
-      <div className="table-title">
-        <span>
-          In the table below, check the appropriate boxes for attendace
-        </span>
-      </div>
-      <table className="att-table">
-        <tbody>
-          <tr className="att-table-row">
-            <th className="emptyText">
-              <span>...</span>
-            </th>
-            {expenses.map((charge) => {
-              return (
-                <th key={charge.id}>
-                  <TableHeader charge={charge}></TableHeader>
-                </th>
-              );
-            })}
-          </tr>
-          {participants.map((person) => {
+    <table className="table">
+      <tbody className="table-body">
+        <thead className="table-row table-row-headerRow">
+          <th className="emptyText">
+            <span>...</span>
+          </th>
+          {expenses.map((charge) => {
             return (
-              <tr key={person.id}>
-                <td className="person-name">
-                  <span>{person.name}</span>
-                </td>
-                {expenses.map((charge) => {
-                  return (
-                    <td key={charge.id}>
-                      <Checkbox
-                        participantID={person.id}
-                        expenseID={charge.id}
-                      ></Checkbox>
-                    </td>
-                  );
-                })}
-              </tr>
+              <th className="table-row-header" key={charge.id}>
+                <TableHeader charge={charge}></TableHeader>
+              </th>
             );
           })}
-        </tbody>
-      </table>
-    </div>
+        </thead>
+        {participants.map((person) => {
+          return (
+            <tr key={person.id} className="table-row">
+              <td className="table-row-HeaderColumn">
+                <span className="table-participantNames">{person.name}</span>
+              </td>
+              {expenses.map((charge) => {
+                return (
+                  <td key={charge.id}>
+                    <Checkbox
+                      participantID={person.id}
+                      expenseID={charge.id}
+                    ></Checkbox>
+                  </td>
+                );
+              })}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
 

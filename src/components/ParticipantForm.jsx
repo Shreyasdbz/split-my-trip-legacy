@@ -32,8 +32,8 @@ const ParticipantForm = () => {
   }, [editParticipant]);
 
   return (
-    <form onSubmit={handleSubmit} className="participant-form">
-      <label htmlFor="participant-name" className="form-label">
+    <form onSubmit={handleSubmit} className="content-form">
+      <label htmlFor="content-form-label" className="form-label">
         Participant Name:{" "}
       </label>
       <input
@@ -41,13 +41,14 @@ const ParticipantForm = () => {
         onChange={handleChange}
         type="text"
         value={name}
-        className="form-add-participant"
-        placeholder="Add new person..."
+        autocomplete="off"
+        className="content-form-input"
+        placeholder="Add new participant......"
         required
       />
-      <div className="fuction-card-button">
-        <button>{editParticipant ? "Update" : "Add"}</button>
-      </div>
+      <button className="content-form-button">
+        {editParticipant ? "Update" : "Add"}
+      </button>
     </form>
   );
 };

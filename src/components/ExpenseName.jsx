@@ -18,26 +18,23 @@ const ExpenseName = ({ charge }) => {
   var payer = findPayer();
 
   return (
-    <li className="expense-name">
-      <div className="expense-list-item">
-        <span>
-          {charge.title}, ${charge.amount} [ {payer.name} ]
-          {/* {charge.title}, ${charge.amount} [{charge.payerID}] */}
-        </span>
-        <div className="btn-wrapper">
-          <button
-            className="expense-list-item-button"
-            onClick={() => findExpense(charge.id)}
-          >
-            <i className="fas fa-pen"></i>
-          </button>
-          <button
-            className="expense-list-item-button"
-            onClick={() => removeExpense(charge.id)}
-          >
-            <i className="fas fa-trash-alt"></i>
-          </button>
-        </div>
+    <li className="list-item">
+      <span>
+        {charge.title}, ${charge.amount} [ {payer.name} ]
+      </span>
+      <div className="btn-wrapper">
+        <button
+          className="content-list-btn"
+          onClick={() => findExpense(charge.id)}
+        >
+          <i className="fas fa-pen"></i>
+        </button>
+        <button
+          className="content-list-btn"
+          onClick={() => removeExpense(charge.id)}
+        >
+          <i className="fas fa-trash-alt"></i>
+        </button>
       </div>
     </li>
   );

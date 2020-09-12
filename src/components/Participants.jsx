@@ -9,35 +9,25 @@ const Participants = () => {
   const { participants } = useContext(ParticipantListContext);
 
   return (
-    <div className="participants-main">
-      <div className="card">
-        <div className="card-content">
-          <div className="function-card-title">
-            <span>Participants</span>
-          </div>
-          <div className="function-card-box">
-            <div className="participants-list-wrapper">
-              {participants.length ? (
-                <ul className="participant-list">
-                  {participants.map((person) => {
-                    return (
-                      <ParticipantName
-                        person={person}
-                        key={person.id}
-                      ></ParticipantName>
-                    );
-                  })}
-                </ul>
-              ) : (
-                <div className="noParticipants">
-                  {/* <span>Please add a person using the form below</span> */}
-                </div>
-              )}
-            </div>
-          </div>
-          <ParticipantForm></ParticipantForm>
-        </div>
+    <div className="content-main">
+      <div className="header">
+        <span>Participants</span>
       </div>
+      {participants.length ? (
+        <ul className="list">
+          {participants.map((person) => {
+            return (
+              <ParticipantName
+                person={person}
+                key={person.id}
+              ></ParticipantName>
+            );
+          })}
+        </ul>
+      ) : (
+        <div className="noParticipants"></div>
+      )}
+      <ParticipantForm></ParticipantForm>
     </div>
   );
 };

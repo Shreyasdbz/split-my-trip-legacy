@@ -16,14 +16,6 @@ const Payments = ({ isShowing, hide, paymentList }) =>
             role="dialog"
           >
             <div className="modal">
-              <button
-                type="button"
-                className="modal-close-button"
-                data-dismiss="modal"
-                onClick={hide}
-              >
-                Close
-              </button>
               <div className="payment-details-wrapper">
                 {paymentList.map((pay) => {
                   return (

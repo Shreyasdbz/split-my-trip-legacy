@@ -52,7 +52,7 @@ const ExpenseForm = () => {
   }, [editExpense]);
 
   return (
-    <form onSubmit={handleSubmit} className="expense-form">
+    <form onSubmit={handleSubmit} className="content-form">
       <label htmlFor="expense-name" className="form-label">
         Title:{" "}
       </label>
@@ -62,7 +62,8 @@ const ExpenseForm = () => {
         onChange={handleChange_title}
         type="text"
         value={title}
-        className="form-add-expense"
+        autocomplete="off"
+        className="content-form-input"
         placeholder="Add new expense..."
         required
       />
@@ -76,8 +77,10 @@ const ExpenseForm = () => {
         onChange={handleChange_amount}
         type="number"
         value={amount}
-        className="form-add-expense"
-        placeholder="Expense amount"
+        autocomplete="off"
+        min="1"
+        className="content-form-input content-form-input-number"
+        placeholder="Amount..."
         required
       />
 
@@ -88,8 +91,7 @@ const ExpenseForm = () => {
       <select
         id="expense-paidBy"
         onChange={handleChange_payerID}
-        className="form-add-expense"
-        placeholder="Option1"
+        className="content-form-input content-form-input-dropdown"
         required
       >
         {participants.map((person) => {
@@ -101,9 +103,9 @@ const ExpenseForm = () => {
         })}
       </select>
 
-      <div className="fuction-card-button">
-        <button>{editExpense ? "Update" : "Add"}</button>
-      </div>
+      <button className="content-form-button">
+        {editExpense ? "Update" : "Add"}
+      </button>
     </form>
   );
 };

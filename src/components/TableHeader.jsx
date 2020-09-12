@@ -19,19 +19,7 @@ const TableHeader = ({ charge }) => {
   // eslint-disable-next-line
   const payerName = getPayerName(charge.payerID);
 
-  return (
-    <div className="table-header">
-      <div className="charge-title">
-        <span>{title}</span>
-      </div>
-      {/* <div className="charge-amount">
-        <span>{amount}</span>
-      </div>
-      <div className="charge-payer">
-        <span>{payerName}</span>
-      </div> */}
-    </div>
-  );
+  return <span className="table-header-title">{title}</span>;
 };
 
 export default TableHeader;

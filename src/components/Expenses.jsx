@@ -10,36 +10,23 @@ const Expenses = () => {
   const { expenses } = useContext(ExpenseListContext);
 
   return (
-    <div className="expenses-main">
-      <div className="card">
-        <div className="card-content">
-          <div className="function-card-title">
-            <span>Expenses</span>
-          </div>
-          <div className="function-card-box">
-            <div className="expenses-list-wrapper">
-              {expenses.length ? (
-                <ul className="expense-list">
-                  {expenses.map((charge) => {
-                    return (
-                      <ExpenseName
-                        charge={charge}
-                        key={charge.id}
-                      ></ExpenseName>
-                    );
-                  })}
-                </ul>
-              ) : (
-                <div className="noExpenses">
-                  {/* <span>Please add an expense using the form below</span> */}
-                </div>
-              )}
-            </div>
-          </div>
-          <ExpenseForm></ExpenseForm>
-          <AttedanceTable></AttedanceTable>
-        </div>
+    <div className="content-main">
+      <div className="header">
+        <span>Expenses</span>
       </div>
+      {expenses.length ? (
+        <ul className="list">
+          {expenses.map((charge) => {
+            return <ExpenseName charge={charge} key={charge.id}></ExpenseName>;
+          })}
+        </ul>
+      ) : (
+        <div className="noExpenses">
+          {/* <span>Please add an expense using the form below</span> */}
+        </div>
+      )}
+      <ExpenseForm></ExpenseForm>
+      <AttedanceTable></AttedanceTable>
     </div>
   );
 };
