@@ -13,7 +13,7 @@ const AttedanceTable = () => {
   return (
     <table className="table">
       <tbody className="table-body">
-        <thead className="table-row table-row-headerRow">
+        <tr className="table-row table-row-headerRow">
           <th className="emptyText">
             <span>...</span>
           </th>
@@ -24,7 +24,7 @@ const AttedanceTable = () => {
               </th>
             );
           })}
-        </thead>
+        </tr>
         {participants.map((person) => {
           return (
             <tr key={person.id} className="table-row">

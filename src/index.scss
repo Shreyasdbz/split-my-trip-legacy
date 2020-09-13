@@ -6,14 +6,6 @@ $width-medium: 768px;
 $width-large: 992px;
 $width-huge: 1200px;
 
-$color-primary: #0099ff;
-$color-primary-lighen: #2dabff;
-$color-primary-darken: #0089e4;
-$color-secondary: #9729ff;
-$color-subtitle: #3e3e3e;
-$color-grey-bg: #e0e0e0;
-$color-bg-dark: #00101b;
-
 $color-primary-dark: #001422;
 $color-primary-normal: #012740;
 $color-primary-light: #003352;
@@ -27,28 +19,21 @@ $color-extra-dark: #1b3e27;
 $color-extra-normal: #336b47;
 $color-extra-light: #44855c;
 $color-success: #28a745;
-$color-danger: #DC3545;
+$color-danger: #dc3545;
+$color-faded: #acacac;
 
-$shadow-0: 0 4px 6px rgba(0, 0, 0, 0.19),
-0 1px 2px rgba(0, 0, 0, 0.23);
-$shadow-1: 0 10px 20px rgba(0, 0, 0, 0.19),
-0 6px 6px rgba(0, 0, 0, 0.23);
+$shadow-0: 0 4px 6px rgba(0, 0, 0, 0.19), 0 1px 2px rgba(0, 0, 0, 0.23);
+$shadow-1: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 $shadow-2: 0 14px 28px rgba(15, 45, 49, 0.22),
-0 10px 10px rgba(15, 45, 49, 0.22);
-$shadow-3: 0 19px 38px rgba(49, 49, 49, 0.3),
-0 15px 12px rgba(0, 0, 0, 0.22);
-$shadow-white: 0 19px 38px rgba(119, 119, 119, 0.3),
-0 15px 12px rgba(29, 29, 29, 0.22);
+  0 10px 10px rgba(15, 45, 49, 0.22);
+$shadow-3: 0 19px 38px rgba(49, 49, 49, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 
-$font-primary: 'Quicksand',
-sans-serif;
-$font-secondary: 'Work Sans',
-sans-serif;
+$font-primary: "Quicksand", sans-serif;
+$font-secondary: "Work Sans", sans-serif;
 
 // ----------------------------------------------------------
 // ----------------------------- Global
 // ----------------------------------------------------------
-
 
 *,
 ::before,
@@ -73,15 +58,15 @@ sans-serif;
 
 body {
   transition: 0.3s;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 500;
+  overflow: auto;
 }
 
 .emptyText {
   opacity: 0%;
   background: none;
 }
-
 
 // ----------------------------------------------------------
 // ----------------------------- Header
@@ -96,7 +81,6 @@ body {
     font-size: 4rem;
     font-weight: 800;
   }
-
 }
 
 // ----------------------------------------------------------
@@ -200,11 +184,9 @@ body {
       width: 5vw;
     }
 
-
     .content-form-input:focus {
       outline: none;
     }
-
 
     .content-form-button {
       margin-left: 1rem;
@@ -215,14 +197,28 @@ body {
       // color: $color-accent-light;
       color: white;
       border-radius: 0.25rem;
+      transition: 0.3s;
     }
-
+    .content-form-button:hover {
+      position: relative;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
   }
 }
 
 // ----------------------------------------------------------
 // ----------------------------- Table
 // ----------------------------------------------------------
+.noExpenses-table {
+  background: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 0rem;
+}
+
 .table {
   padding: 2rem 0rem;
   background: none;
@@ -239,15 +235,12 @@ body {
     max-height: 28vh;
     max-width: 71vw;
     line-height: 2.5rem;
-    overflow-x: scroll;
-    overflow-y: scroll;
-
+    overflow-x: auto;
+    overflow-y: auto;
 
     .table-row {
-
       .table-row-header {
         border-bottom: 0.025rem solid $color-accent-normal;
-        ;
       }
 
       .table-header-title {
@@ -298,7 +291,7 @@ body {
 
   .calculate:hover {
     position: relative;
-    transform: scale(1.0125);
+    transform: scale(1.05);
     box-shadow: $shadow-1;
     cursor: pointer;
   }
@@ -316,12 +309,11 @@ body {
 
   .reset:hover {
     position: relative;
-    transform: scale(1.0125);
+    transform: scale(1.05);
     box-shadow: $shadow-0;
     cursor: pointer;
   }
 }
-
 
 // ----------------------------------------------------------
 // ----------------------------- Payments Modal
@@ -347,9 +339,9 @@ body {
   height: 100%;
   outline: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .modal {
@@ -360,6 +352,20 @@ body {
   justify-content: center;
   flex-direction: column;
   width: 50%;
+}
+
+.payments-modal-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    padding: 2rem 0rem;
+    color: $color-secondary-normal;
+    font-size: 3rem;
+    font-weight: 300;
+  }
 }
 
 .modal-close-button {
@@ -387,6 +393,7 @@ body {
   margin: 1rem 1rem;
   border-radius: 1rem;
   color: $color-accent-dark;
+  overflow: hidden; /* Hide scrollbars */
 
   .header {
     display: flex;
@@ -438,10 +445,22 @@ body {
       border-top: none;
       border-left: none;
       border-right: none;
-      border-bottom: 0.1rem solid $color-primary;
+      border-bottom: 0.1rem solid $color-primary-light;
       width: 100%;
       margin-left: 1.5rem;
       margin-right: 1.5rem;
+    }
+  }
+
+  .payment-card-noTransactions {
+    display: flex;
+    justify-content: space-between;
+    line-height: 2rem;
+    margin: 0rem 1rem;
+
+    span {
+      padding-left: 2rem;
+      color: $color-faded;
     }
   }
 
@@ -451,7 +470,7 @@ body {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     margin: 0rem 1rem;
-    overflow: scroll;
+    overflow: auto;
 
     .payments-label {
       padding-left: 1rem;
@@ -483,15 +502,36 @@ body {
 
       .name {
         color: $color-secondary-light;
-        padding: 0.25rem 0.0rem;
+        padding: 0.25rem 0rem;
         border-radius: 1rem;
       }
 
       .amount {
-        color: $color-extra-normal;
+        color: $color-extra-light;
         padding: 0.25rem 0.025rem;
         border-radius: 1rem;
       }
     }
   }
+}
+
+// ----------------------------------------------------------
+// ----------------------------- Transitions
+// ----------------------------------------------------------
+.t-appear-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.t-appear-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.t-appear-exit {
+  opacity: 1;
+}
+.t-appear-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }

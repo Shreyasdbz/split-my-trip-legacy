@@ -18,14 +18,20 @@ const ExpenseListContextProvider = (props) => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
 
-  const addExpense = (title, amount, payerID) => {
+  const addExpense = (title, amount, payerID, payerName) => {
     if (payerID === "" || payerID === null) {
       payerID = participants[0].id;
     }
 
     setExpenses([
       ...expenses,
-      { title: title, amount: amount, payerID: payerID, id: uuid() },
+      {
+        title: title,
+        amount: amount,
+        payerID: payerID,
+        payerName: payerName,
+        id: uuid(),
+      },
     ]);
   };
 
@@ -43,9 +49,9 @@ const ExpenseListContextProvider = (props) => {
     setEditExpense(charge);
   };
 
-  const editExpenseItem = (title, amount, payerID, id) => {
+  const editExpenseItem = (title, amount, payerID, payerName, id) => {
     const newExpeseList = expenses.map((charge) =>
-      charge.id === id ? { title, amount, payerID, id } : charge
+      charge.id === id ? { title, amount, payerID, payerName, id } : charge
     );
 
     setExpenses(newExpeseList);

@@ -41,7 +41,7 @@ const ParticipantForm = () => {
         onChange={handleChange}
         type="text"
         value={name}
-        autocomplete="off"
+        autoComplete="off"
         className="content-form-input"
         placeholder="Add new participant......"
         required

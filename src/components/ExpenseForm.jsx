@@ -12,6 +12,9 @@ const ExpenseForm = () => {
   const [amount, setAmount] = useState("");
   const [payerID, setPayerID] = useState("");
 
+  var tempID = "";
+  var tempName = "";
+
   const handleChange_title = (e) => {
     setTitle(e.target.value);
   };
@@ -26,16 +29,40 @@ const ExpenseForm = () => {
     e.preventDefault();
 
     if (payerID === "") {
+      tempID = participants[0].id;
+      tempName = participants[0].name;
+
       setPayerID(participants[0].id);
     }
 
     if (editExpense === null) {
-      addExpense(title, amount, payerID);
+      if (tempID !== "" && tempName !== "") {
+        addExpense(title, amount, tempID, tempName);
+      } else {
+        var getName = "";
+
+        for (let i = 0; i < participants.length; i++) {
+          if (participants[i].id === payerID) {
+            getName = participants[i].name;
+          }
+        }
+
+        addExpense(title, amount, payerID, getName);
+      }
+
       setTitle("");
       setAmount("");
       setPayerID("");
     } else {
-      editExpenseItem(title, amount, payerID, editExpense.id);
+      var getName_edit = "";
+
+      for (let i = 0; i < participants.length; i++) {
+        if (participants[i].id === payerID) {
+          getName_edit = participants[i].name;
+        }
+      }
+
+      editExpenseItem(title, amount, payerID, getName_edit, editExpense.id);
     }
   };
 
@@ -62,7 +89,7 @@ const ExpenseForm = () => {
         onChange={handleChange_title}
         type="text"
         value={title}
-        autocomplete="off"
+        autoComplete="off"
         className="content-form-input"
         placeholder="Add new expense..."
         required
@@ -77,7 +104,7 @@ const ExpenseForm = () => {
         onChange={handleChange_amount}
         type="number"
         value={amount}
-        autocomplete="off"
+        autoComplete="off"
         min="1"
         className="content-form-input content-form-input-number"
         placeholder="Amount..."
@@ -103,7 +130,7 @@ const ExpenseForm = () => {
         })}
       </select>
 
-      <button className="content-form-button">
+      <button onClick={handleSubmit} className="content-form-button">
         {editExpense ? "Update" : "Add"}
       </button>
     </form>

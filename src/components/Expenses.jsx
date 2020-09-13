@@ -26,7 +26,11 @@ const Expenses = () => {
         </div>
       )}
       <ExpenseForm></ExpenseForm>
-      <AttedanceTable></AttedanceTable>
+      {!expenses.length ? (
+        <div className="noExpenses-table"></div>
+      ) : (
+        <AttedanceTable></AttedanceTable>
+      )}
     </div>
   );
 };

@@ -107,10 +107,12 @@ export const getPaymentList = (participants, expenses, transactions) => {
       balance: balance_amount,
     };
 
-    if (balance_raw > 0) {
+    if (balance_amount >= 0) {
       positiveList.push(obj);
+      // console.log("Pushing to pos: ", obj);
     } else {
       negativeList.push(obj);
+      // console.log("Pushing to neg: ", obj);
     }
 
     pn.balance = balance_amount;
@@ -131,25 +133,29 @@ export const getPaymentList = (participants, expenses, transactions) => {
     if (finalTranscations !== undefined) {
       for (let f = 0; f < finalTranscations.length; f++) {
         var ft = finalTranscations[f];
-        if (ft.payerID === ptc.id) {
-          var payItem = {
-            name: ft.receiverName,
-            amount: Math.abs(ft.amount),
-            id: uuid(),
-          };
-          payList.push(payItem);
-        } else if (ft.receiverID === ptc.id) {
-          var getItem = {
-            name: ft.payerName,
-            amount: Math.abs(ft.amount),
-            id: uuid(),
-          };
-          getList.push(getItem);
+        if (ft.amount !== 0) {
+          //round up amount
+          var amount_raw = ft.amount;
+          ft.amount = Math.round(amount_raw * 100) / 100;
+
+          if (ft.payerID === ptc.id) {
+            var payItem = {
+              name: ft.receiverName,
+              amount: Math.abs(ft.amount),
+              id: uuid(),
+            };
+            payList.push(payItem);
+          } else if (ft.receiverID === ptc.id) {
+            var getItem = {
+              name: ft.payerName,
+              amount: Math.abs(ft.amount),
+              id: uuid(),
+            };
+            getList.push(getItem);
+          }
         }
       }
     }
-
-    console.log(ptc.name, payList, getList);
 
     var pay = { name, balance, payList, getList, id: uuid() };
     paymentList.push(pay);

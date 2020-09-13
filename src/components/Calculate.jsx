@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { CSSTransition } from "react-transition-group";
 
 import Payments from "./Payments";
 
@@ -22,6 +23,8 @@ const Calculate = () => {
     PaymentListContext
   );
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleCalculate = () => {
     var paymentList = getPaymentList(participants, expenses, transactions);
 
@@ -34,11 +37,13 @@ const Calculate = () => {
       );
     }
     toggle();
+    setIsOpen(!isOpen);
   };
 
   const handleCloseModal = () => {
     clearPayments();
     toggle();
+    setIsOpen(!isOpen);
   };
 
   const handleReset = () => {
@@ -58,11 +63,20 @@ const Calculate = () => {
       <button className="reset" onClick={handleReset}>
         Reset
       </button>
-      <Payments
-        isShowing={isShowing}
-        hide={handleCloseModal}
-        paymentList={payments}
-      />
+      <CSSTransition
+        in={isOpen}
+        timeout={300}
+        classNames="t-modal"
+        unmountOnExit
+        onEnter={() => setIsOpen(!isOpen)}
+        onExited={() => setIsOpen(!isOpen)}
+      >
+        <Payments
+          isShowing={isShowing}
+          hide={handleCloseModal}
+          paymentList={payments}
+        />
+      </CSSTransition>
     </div>
   );
 };

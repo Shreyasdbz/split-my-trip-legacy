@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { TransitionGroup } from "react-transition-group";
 
 import PaymentDetails from "./PaymentDetails";
 
@@ -16,12 +17,17 @@ const Payments = ({ isShowing, hide, paymentList }) =>
             role="dialog"
           >
             <div className="modal">
+              <div className="payments-modal-header">
+                <span>Split of the Trip</span>
+              </div>
               <div className="payment-details-wrapper">
-                {paymentList.map((pay) => {
-                  return (
-                    <PaymentDetails pay={pay} key={pay.id}></PaymentDetails>
-                  );
-                })}
+                <TransitionGroup transitionName="t-appear">
+                  {paymentList.map((pay) => {
+                    return (
+                      <PaymentDetails pay={pay} key={pay.id}></PaymentDetails>
+                    );
+                  })}
+                </TransitionGroup>
               </div>
               <button
                 type="button"

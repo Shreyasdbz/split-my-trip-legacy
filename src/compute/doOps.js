@@ -2,6 +2,7 @@ import uuid from "react-uuid";
 
 export const doOps = (positive, negative) => {
   var finalTranscations = [];
+  var printOwes = true;
   // finalTransaction obj data structure:
   // []:
   // id,
@@ -10,6 +11,8 @@ export const doOps = (positive, negative) => {
   // receiverID
   // receiverName
   // amount
+
+  // console.log("PosList: ", positive, "NegList: ", negative);
 
   for (let p = 0; p < positive.length; p++) {
     for (let n = 0; n < negative.length; n++) {
@@ -36,13 +39,16 @@ export const doOps = (positive, negative) => {
         };
         finalTranscations.push(obj_a);
 
-        // console.log(
-        //   negative[n].name +
-        //     " owes " +
-        //     positive[p].name +
-        //     " amount: " +
-        //     oweAmount_neg
-        // );
+        if (printOwes === true) {
+          console.log(
+            "CASE 1: " +
+              negative[n].name +
+              " owes " +
+              positive[p].name +
+              " amount: " +
+              oweAmount_neg
+          );
+        }
       } else if (
         Math.abs(positive[p].balance) < Math.abs(negative[n].balance) &&
         positive[p].balance !== 0 &&
@@ -64,13 +70,16 @@ export const doOps = (positive, negative) => {
         };
         finalTranscations.push(obj_b);
 
-        // console.log(
-        //   negative[n].name +
-        //     " owes " +
-        //     positive[p].name +
-        //     " amount: " +
-        //     oweAmount
-        // );
+        if (printOwes === true) {
+          console.log(
+            "CASE 2: " +
+              negative[n].name +
+              " owes " +
+              positive[p].name +
+              " amount: " +
+              oweAmount
+          );
+        }
       } else {
         if (positive[p] !== 0 && negative[n] !== 0) {
           // pos === neg
@@ -84,13 +93,16 @@ export const doOps = (positive, negative) => {
           };
           finalTranscations.push(obj_c);
 
-          // console.log(
-          //   negative[n].name +
-          //     " owes " +
-          //     positive[p].name +
-          //     " amount: " +
-          //     positive[p].balance
-          // );
+          if (printOwes === true) {
+            console.log(
+              "CASE 3: " +
+                negative[n].name +
+                " owes " +
+                positive[p].name +
+                " amount: " +
+                positive[p].balance
+            );
+          }
           positive[p].balance = 0;
           negative[n].balance = 0;
         }

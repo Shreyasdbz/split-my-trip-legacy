@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { TransitionGroup } from "react-transition-group";
+
 import { ParticipantListContext } from "../context/ParticipantListContext";
 
 import ParticipantName from "./ParticipantName";
@@ -14,16 +16,18 @@ const Participants = () => {
         <span>Participants</span>
       </div>
       {participants.length ? (
-        <ul className="list">
-          {participants.map((person) => {
-            return (
-              <ParticipantName
-                person={person}
-                key={person.id}
-              ></ParticipantName>
-            );
-          })}
-        </ul>
+        <TransitionGroup transitionName="t-appear">
+          <ul className="list">
+            {participants.map((person) => {
+              return (
+                <ParticipantName
+                  person={person}
+                  key={person.id}
+                ></ParticipantName>
+              );
+            })}
+          </ul>
+        </TransitionGroup>
       ) : (
         <div className="noParticipants"></div>
       )}

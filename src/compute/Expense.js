@@ -3,6 +3,7 @@ class Expense {
     this.title = title;
     this.amount = amount;
     this.payerID = payerID;
+    this.payerName = "";
     this.id = id;
     this.participantIDs = [];
   }
