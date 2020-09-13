@@ -41,7 +41,7 @@ export const doOps = (positive, negative) => {
 
         if (printOwes === true) {
           console.log(
-            "CASE 1: " +
+            "CASE 1: POS > NEG" +
               negative[n].name +
               " owes " +
               positive[p].name +
@@ -72,7 +72,7 @@ export const doOps = (positive, negative) => {
 
         if (printOwes === true) {
           console.log(
-            "CASE 2: " +
+            "CASE 2: POS < NEG" +
               negative[n].name +
               " owes " +
               positive[p].name +
@@ -81,7 +81,7 @@ export const doOps = (positive, negative) => {
           );
         }
       } else {
-        if (positive[p] !== 0 && negative[n] !== 0) {
+        if (positive[p].balance !== 0 && negative[n].balance !== 0) {
           // pos === neg
           var obj_c = {
             id: uuid(),
@@ -95,7 +95,7 @@ export const doOps = (positive, negative) => {
 
           if (printOwes === true) {
             console.log(
-              "CASE 3: " +
+              "CASE 3: POS" +
                 negative[n].name +
                 " owes " +
                 positive[p].name +
