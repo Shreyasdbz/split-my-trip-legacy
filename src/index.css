@@ -215,7 +215,7 @@ body {
   padding: 0.125rem 1rem;
   outline: none;
   border: none;
-  background: #44855c;
+  background: #336b47;
   color: white;
   border-radius: 0.25rem;
   -webkit-transition: 0.3s;
@@ -224,8 +224,8 @@ body {
 
 .content-main .content-form .content-form-button:hover {
   position: relative;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  background: #44855c;
+  color: white;
   cursor: pointer;
 }
 
@@ -331,8 +331,7 @@ body {
 
 .calculate-wrapper .calculate:hover {
   position: relative;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  background: #44855c;
   cursor: pointer;
 }
 
@@ -354,8 +353,7 @@ body {
 
 .calculate-wrapper .reset:hover {
   position: relative;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  background: #db5234;
   cursor: pointer;
 }
 
@@ -446,8 +444,7 @@ body {
 
 .modal-close-button:hover {
   position: relative;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  background: #db5234;
   cursor: pointer;
 }
 
@@ -624,6 +621,51 @@ body {
   color: #44855c;
   padding: 0.25rem 0.025rem;
   border-radius: 1rem;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #acacac;
+  text-align: center;
+  font-size: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 200;
+}
+
+.footer .footer-label {
+  padding-right: 0.5rem;
+}
+
+.footer .footer-name {
+  font-weight: 600;
+  padding-right: 0.5rem;
+}
+
+.footer .footer-icon {
+  padding-right: 0.5rem;
+}
+
+.footer .footer-link {
+  text-decoration: none;
+  color: #acacac;
+}
+
+.footer .footer-link:visited {
+  text-decoration: none;
+  color: #acacac;
+}
+
+.footer .footer-link:active {
+  text-decoration: none;
+  color: #acacac;
+}
+
+.footer .footer-link:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .t-appear-enter {

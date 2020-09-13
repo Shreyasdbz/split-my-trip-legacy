@@ -16,7 +16,7 @@ const PaymentDetails = ({ pay }) => {
   const hasLists = checkLists(payList, getList);
 
   return (
-    <div className="payment-card">
+    <div className="payment-card animate-appear-long">
       <div className="header">
         <div className="name">
           <span className="name-label">Transcations for: </span>

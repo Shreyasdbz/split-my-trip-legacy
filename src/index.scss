@@ -191,7 +191,7 @@ body {
       padding: 0.125rem 1rem;
       outline: none;
       border: none;
-      background: $color-extra-light;
+      background: $color-extra-normal;
       // color: $color-accent-light;
       color: white;
       border-radius: 0.25rem;
@@ -199,7 +199,9 @@ body {
     }
     .content-form-button:hover {
       position: relative;
-      transform: scale(1.05);
+      //   transform: scale(1.125);
+      background: $color-extra-light;
+      color: white;
       cursor: pointer;
     }
   }
@@ -282,7 +284,8 @@ body {
   }
   .calculate:hover {
     position: relative;
-    transform: scale(1.05);
+    // transform: scale(1.05);
+    background: $color-extra-light;
     cursor: pointer;
   }
   .calculate:focus {
@@ -301,7 +304,8 @@ body {
   }
   .reset:hover {
     position: relative;
-    transform: scale(1.05);
+    // transform: scale(1.05);
+    background: $color-secondary-normal;
     cursor: pointer;
   }
   .reset:focus {
@@ -372,7 +376,8 @@ body {
 }
 .modal-close-button:hover {
   position: relative;
-  transform: scale(1.05);
+  //   transform: scale(1.05);
+  background: $color-secondary-normal;
   cursor: pointer;
 }
 .modal-close-button:focus {
@@ -493,6 +498,51 @@ body {
         border-radius: 1rem;
       }
     }
+  }
+}
+
+// ----------------------------------------------------------
+// ----------------------------- Footer
+// ----------------------------------------------------------
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: $color-faded;
+  text-align: center;
+  font-size: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 200;
+
+  .footer-label {
+    padding-right: 0.5rem;
+  }
+
+  .footer-name {
+    font-weight: 600;
+    padding-right: 0.5rem;
+  }
+
+  .footer-icon {
+    padding-right: 0.5rem;
+  }
+
+  .footer-link {
+    text-decoration: none;
+    color: $color-faded;
+  }
+  .footer-link:visited {
+    text-decoration: none;
+    color: $color-faded;
+  }
+  .footer-link:active {
+    text-decoration: none;
+    color: $color-faded;
+  }
+  .footer-link:hover {
+    text-decoration: none;
+    color: white;
   }
 }
 

@@ -2,7 +2,7 @@ import uuid from "react-uuid";
 
 export const doOps = (positive, negative) => {
   var finalTranscations = [];
-  var printOwes = true;
+  var printOwes = false;
   // finalTransaction obj data structure:
   // []:
   // id,

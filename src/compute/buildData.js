@@ -18,6 +18,8 @@ import Expense from "./Expense";
 // id
 
 export const getPaymentList = (participants, expenses, transactions) => {
+  var debug = false;
+
   var expenseList = [];
   var participantList = [];
   var paymentList = [];
@@ -109,10 +111,14 @@ export const getPaymentList = (participants, expenses, transactions) => {
 
     if (balance_amount >= 0) {
       positiveList.push(obj);
-      console.log("Pushing to pos: ", obj);
+      if (debug === true) {
+        console.log("Pushing to pos: ", obj);
+      }
     } else {
       negativeList.push(obj);
-      console.log("Pushing to neg: ", obj);
+      if (debug === true) {
+        console.log("Pushing to neg: ", obj);
+      }
     }
 
     pn.balance = balance_amount;

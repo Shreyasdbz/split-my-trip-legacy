@@ -41,6 +41,38 @@ function App() {
                 </div>
               </div>
               <Calculate></Calculate>
+              <div className="footer">
+                <span className="footer-label">Created by: </span>
+                <span className="footer-name">
+                  <a href="http://www.shreyassane.com" className="footer-link">
+                    Shreyas Sane
+                  </a>
+                </span>
+                <span className="footer-icon">
+                  <a
+                    href="https://github.com/Shreyasdbz"
+                    className="footer-link"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </span>
+                <span className="footer-icon">
+                  <a
+                    href="http://www.linkedin.com/in/shreyassane"
+                    className="footer-link"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </span>
+                <span className="footer-icon">
+                  <a
+                    href="http://www.instagram.com/itShreyas"
+                    className="footer-link"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </span>
+              </div>
             </div>
           </PaymentListContextProvider>
         </TransactionListContextProvider>
