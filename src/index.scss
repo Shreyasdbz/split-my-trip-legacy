@@ -85,6 +85,47 @@ body {
 }
 
 // ----------------------------------------------------------
+// ----------------------------- Mobile warning overlay
+// ----------------------------------------------------------
+.mobile-warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-primary-dark;
+  opacity: 100;
+  display: block;
+}
+.mobile-warning-message {
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-top: 15rem;
+
+  span {
+    padding-top: 2rem;
+    font-size: 1rem;
+    color: white;
+  }
+}
+
+@media screen and (min-width: $width-large) {
+  .mobile-warning-overlay {
+    display: none;
+  }
+  .mobile-warning-message {
+    display: none;
+  }
+}
+// ----------------------------------------------------------
 // ----------------------------- Header
 // ----------------------------------------------------------
 .header-main {
@@ -293,7 +334,7 @@ body {
   }
 
   .reset {
-    margin: 1rem 0rem;
+    margin-top: 1rem;
     border: none;
     background: $color-secondary-dark;
     color: white;
@@ -311,8 +352,97 @@ body {
   .reset:focus {
     outline: none;
   }
+
+  .help {
+    margin: 1rem 0rem;
+    border: none;
+    background: $color-accent-dark;
+    padding: 0.5rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    transition: 0.1s;
+  }
+  .help:hover {
+    position: relative;
+    background: $color-accent-light;
+    cursor: pointer;
+  }
+  .help:focus {
+    outline: none;
+  }
 }
 
+// ----------------------------------------------------------
+// ----------------------------- Help Modal
+// ----------------------------------------------------------
+.help-modal-wrapper {
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.modal-help {
+  z-index: 100;
+  border-radius: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  margin-top: 15rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  background: $color-primary-light;
+
+  .instruction-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0rem;
+    .number {
+      color: $color-accent-light;
+      background: $color-extra-normal;
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      padding: 0.25rem 0.75rem;
+    }
+    .instruction {
+      color: $color-accent-normal;
+    }
+  }
+
+  .help-close-button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.125rem;
+    background: $color-accent-dark;
+    color: black;
+    border-radius: 1rem;
+    cursor: pointer;
+    border: none;
+    margin: 2rem 0rem;
+  }
+  .help-close-button:hover {
+    position: relative;
+    color: black;
+    //   transform: scale(1.05);
+    background: $color-accent-light;
+    cursor: pointer;
+  }
+  .help-close-button:focus {
+    outline: none;
+  }
+}
 // ----------------------------------------------------------
 // ----------------------------- Payments Modal
 // ----------------------------------------------------------

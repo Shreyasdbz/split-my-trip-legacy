@@ -33,6 +33,12 @@ function App() {
         <TransactionListContextProvider>
           <PaymentListContextProvider>
             <div className="App animate-appear-long">
+              <div className="mobile-warning-overlay"></div>
+              <div className="mobile-warning-message">
+                <span>Split my trip currently</span>
+                <span>doesn't support mobile devices :(</span>
+                <span>Please open the app on a computer</span>
+              </div>
               <Header></Header>
               <div className="content-wrapper">
                 <div className="content-container">
@@ -53,7 +59,7 @@ function App() {
                     href="https://github.com/Shreyasdbz"
                     className="footer-link"
                   >
-                    <i class="fab fa-github"></i>
+                    <i className="fab fa-github"></i>
                   </a>
                 </span>
                 <span className="footer-icon">
@@ -61,7 +67,7 @@ function App() {
                     href="http://www.linkedin.com/in/shreyassane"
                     className="footer-link"
                   >
-                    <i class="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in"></i>
                   </a>
                 </span>
                 <span className="footer-icon">
@@ -69,7 +75,7 @@ function App() {
                     href="http://www.instagram.com/itShreyas"
                     className="footer-link"
                   >
-                    <i class="fab fa-instagram"></i>
+                    <i className="fab fa-instagram"></i>
                   </a>
                 </span>
               </div>

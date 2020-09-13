@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 
+import HelpWrapper from "./HelpWrapper";
 import Payments from "./Payments";
 
 import { ParticipantListContext } from "../context/ParticipantListContext";
@@ -62,6 +63,7 @@ const Calculate = () => {
       <button className="reset" onClick={handleReset}>
         Reset
       </button>
+      <HelpWrapper></HelpWrapper>
       <Payments
         isShowing={isShowing}
         hide={handleCloseModal}

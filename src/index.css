@@ -77,6 +77,56 @@ body {
           animation-timing-function: ease-in-out;
 }
 
+.mobile-warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #001422;
+  opacity: 100;
+  display: block;
+}
+
+.mobile-warning-message {
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  z-index: 1050;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 15rem;
+}
+
+.mobile-warning-message span {
+  padding-top: 2rem;
+  font-size: 1rem;
+  color: white;
+}
+
+@media screen and (min-width: 992px) {
+  .mobile-warning-overlay {
+    display: none;
+  }
+  .mobile-warning-message {
+    display: none;
+  }
+}
+
 .header-main {
   width: 100vw;
 }
@@ -340,7 +390,7 @@ body {
 }
 
 .calculate-wrapper .reset {
-  margin: 1rem 0rem;
+  margin-top: 1rem;
   border: none;
   background: #ab2e1c;
   color: white;
@@ -358,6 +408,126 @@ body {
 }
 
 .calculate-wrapper .reset:focus {
+  outline: none;
+}
+
+.calculate-wrapper .help {
+  margin: 1rem 0rem;
+  border: none;
+  background: #7cd5f5;
+  padding: 0.5rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.calculate-wrapper .help:hover {
+  position: relative;
+  background: #d2fafe;
+  cursor: pointer;
+}
+
+.calculate-wrapper .help:focus {
+  outline: none;
+}
+
+.help-modal-wrapper {
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: auto;
+}
+
+.modal-help {
+  z-index: 100;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  margin-top: 15rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  background: #003352;
+}
+
+.modal-help .instruction-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem 0rem;
+}
+
+.modal-help .instruction-wrapper .number {
+  color: #d2fafe;
+  background: #336b47;
+  border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 1rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.modal-help .instruction-wrapper .instruction {
+  color: #b7f2fd;
+}
+
+.modal-help .help-close-button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.125rem;
+  background: #7cd5f5;
+  color: black;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: none;
+  margin: 2rem 0rem;
+}
+
+.modal-help .help-close-button:hover {
+  position: relative;
+  color: black;
+  background: #d2fafe;
+  cursor: pointer;
+}
+
+.modal-help .help-close-button:focus {
   outline: none;
 }
 
