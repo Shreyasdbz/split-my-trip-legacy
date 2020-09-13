@@ -41,6 +41,42 @@ body {
   background: none;
 }
 
+.animate-appear {
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+.animate-appear-long {
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.animate-bounce-top {
+  -webkit-animation-name: bounce-top;
+          animation-name: bounce-top;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.animate-bounce-bottom {
+  -webkit-animation-name: bounce-bottom;
+          animation-name: bounce-bottom;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
 .header-main {
   width: 100vw;
 }
@@ -603,5 +639,130 @@ body {
   transition: opacity 300ms, -webkit-transform 300ms;
   transition: opacity 300ms, transform 300ms;
   transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 10;
+  }
+  20% {
+    opacity: 20;
+  }
+  30% {
+    opacity: 30;
+  }
+  40% {
+    opacity: 40;
+  }
+  50% {
+    opacity: 50;
+  }
+  60% {
+    opacity: 65;
+  }
+  70% {
+    opacity: 80;
+  }
+  80% {
+    opacity: 100;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 10;
+  }
+  20% {
+    opacity: 20;
+  }
+  30% {
+    opacity: 30;
+  }
+  40% {
+    opacity: 40;
+  }
+  50% {
+    opacity: 50;
+  }
+  60% {
+    opacity: 65;
+  }
+  70% {
+    opacity: 80;
+  }
+  80% {
+    opacity: 100;
+  }
+}
+
+@-webkit-keyframes bounce-top {
+  0% {
+    position: relative;
+    top: 2rem;
+  }
+  20% {
+    position: relative;
+    top: 1rem;
+  }
+  40% {
+    position: relative;
+    bottom: 00rem;
+  }
+  60% {
+    position: relative;
+    bottom: 0rem;
+  }
+}
+
+@keyframes bounce-top {
+  0% {
+    position: relative;
+    top: 2rem;
+  }
+  20% {
+    position: relative;
+    top: 1rem;
+  }
+  40% {
+    position: relative;
+    bottom: 00rem;
+  }
+  60% {
+    position: relative;
+    bottom: 0rem;
+  }
+}
+
+@keyframes bounce-top {
+  0% {
+    position: relative;
+    bottom: 2rem;
+  }
+  20% {
+    position: relative;
+    bottom: 1rem;
+  }
+  40% {
+    position: relative;
+    bottom: 0rem;
+  }
+  60% {
+    position: relative;
+    top: 1rem;
+  }
+  80% {
+    position: relative;
+    top: 0.5rem;
+  }
+  100% {
+    position: relative;
+    top: 0rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */

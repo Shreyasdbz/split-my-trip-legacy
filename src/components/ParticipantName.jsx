@@ -20,7 +20,7 @@ const ParticipantName = ({ person }) => {
   };
 
   return (
-    <li className="list-item">
+    <li className="list-item  animate-appear">
       <span>{person.name}</span>
       <div className="btn-wrapper">
         <button

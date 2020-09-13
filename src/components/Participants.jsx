@@ -11,7 +11,7 @@ const Participants = () => {
   const { participants } = useContext(ParticipantListContext);
 
   return (
-    <div className="content-main">
+    <div className="content-main animate-appear">
       <div className="header">
         <span>Participants</span>
       </div>

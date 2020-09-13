@@ -11,7 +11,7 @@ const AttedanceTable = () => {
   const { expenses } = useContext(ExpenseListContext);
 
   return (
-    <table className="table">
+    <table className="table animate-appear">
       <tbody className="table-body">
         <tr className="table-row table-row-headerRow">
           <th className="emptyText">
@@ -29,12 +29,13 @@ const AttedanceTable = () => {
           return (
             <tr key={person.id} className="table-row">
               <td className="table-row-HeaderColumn">
-                <span className="table-participantNames">{person.name}</span>
+                <span className="table-participantNames animate-appear">{person.name}</span>
               </td>
               {expenses.map((charge) => {
                 return (
                   <td key={charge.id}>
                     <Checkbox
+                    className="animate-appear"
                       participantID={person.id}
                       expenseID={charge.id}
                     ></Checkbox>

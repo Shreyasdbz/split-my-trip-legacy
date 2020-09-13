@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <div className="header-main">
-      <span>SPLIT MY TRIP</span>
+      <span className="">SPLIT MY TRIP</span>
     </div>
   );
 };

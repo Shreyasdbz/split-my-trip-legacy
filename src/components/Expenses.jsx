@@ -10,7 +10,7 @@ const Expenses = () => {
   const { expenses } = useContext(ExpenseListContext);
 
   return (
-    <div className="content-main">
+    <div className="content-main animate-appear">
       <div className="header">
         <span>Expenses</span>
       </div>

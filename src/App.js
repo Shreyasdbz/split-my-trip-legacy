@@ -32,7 +32,7 @@ function App() {
       <ExpenseListContextProvider>
         <TransactionListContextProvider>
           <PaymentListContextProvider>
-            <div className="App">
+            <div className="App animate-appear-long">
               <Header></Header>
               <div className="content-wrapper">
                 <div className="content-container">
