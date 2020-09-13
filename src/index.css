@@ -158,8 +158,8 @@ body {
   color: #d2fafe;
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
+  -webkit-transition: 0.05s;
+  transition: 0.05s;
 }
 
 .content-main .list .list-item .content-list-btn:hover {
@@ -333,9 +333,11 @@ body {
   position: relative;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   cursor: pointer;
+}
+
+.calculate-wrapper .calculate:focus {
+  outline: none;
 }
 
 .calculate-wrapper .reset {
@@ -354,9 +356,11 @@ body {
   position: relative;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.19), 0 1px 2px rgba(0, 0, 0, 0.23);
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.19), 0 1px 2px rgba(0, 0, 0, 0.23);
   cursor: pointer;
+}
+
+.calculate-wrapper .reset:focus {
+  outline: none;
 }
 
 .modal-overlay {
@@ -438,6 +442,17 @@ body {
   cursor: pointer;
   border: none;
   margin: 2rem 0rem;
+}
+
+.modal-close-button:hover {
+  position: relative;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  cursor: pointer;
+}
+
+.modal-close-button:focus {
+  outline: none;
 }
 
 .payment-details-wrapper {

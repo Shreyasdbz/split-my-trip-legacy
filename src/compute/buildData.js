@@ -109,10 +109,10 @@ export const getPaymentList = (participants, expenses, transactions) => {
 
     if (balance_amount >= 0) {
       positiveList.push(obj);
-      // console.log("Pushing to pos: ", obj);
+      console.log("Pushing to pos: ", obj);
     } else {
       negativeList.push(obj);
-      // console.log("Pushing to neg: ", obj);
+      console.log("Pushing to neg: ", obj);
     }
 
     pn.balance = balance_amount;

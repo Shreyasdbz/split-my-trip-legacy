@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { CSSTransition } from "react-transition-group";
 
 import Payments from "./Payments";
 
@@ -63,20 +62,11 @@ const Calculate = () => {
       <button className="reset" onClick={handleReset}>
         Reset
       </button>
-      <CSSTransition
-        in={isOpen}
-        timeout={300}
-        classNames="t-modal"
-        unmountOnExit
-        onEnter={() => setIsOpen(!isOpen)}
-        onExited={() => setIsOpen(!isOpen)}
-      >
-        <Payments
-          isShowing={isShowing}
-          hide={handleCloseModal}
-          paymentList={payments}
-        />
-      </CSSTransition>
+      <Payments
+        isShowing={isShowing}
+        hide={handleCloseModal}
+        paymentList={payments}
+      />
     </div>
   );
 };
